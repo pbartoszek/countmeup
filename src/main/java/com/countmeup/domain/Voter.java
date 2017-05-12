@@ -1,5 +1,7 @@
 package com.countmeup.domain;
 
+import com.countmeup.domain.exception.VoteLimitReached;
+
 public class Voter {
     private final String name;
     private int castedVotes;
@@ -17,7 +19,7 @@ public class Voter {
             castedVotes++;
             return true;
         } else {
-            return false;
+            throw new VoteLimitReached();
         }
 
     }
